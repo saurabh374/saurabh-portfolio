@@ -1,7 +1,7 @@
 {
   "name": "saurabh-portfolio",
   "version": "0.1.0",
-  "homepage": "https://saurabh374.github.io/",
+  "homepage": "https://saurabh374.github.io/saurabh-portfolio",
   "private": true,
   "dependencies": {
     "@emailjs/browser": "^3.11.0",
