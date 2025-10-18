@@ -1,6 +1,19 @@
 import React from 'react'
 import styled from 'styled-components'
 
+const Button = styled.button`
+    display: none;
+    width: 100%;
+    padding: 10px;
+    background-color: ${({ theme }) => theme.white};
+    color: ${({ theme }) => theme.text_black};
+    font-size: 14px;
+    font-weight: 700;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.8s ease-in-out;
+`
 const Card = styled.div`
     width: 330px;
     height: 490px;
@@ -18,6 +31,9 @@ const Card = styled.div`
         transform: translateY(-10px);
         box-shadow: 0 0 50px 4px rgba(0,0,0,0.6);
         filter: brightness(1.1);
+    }
+    &:hover ${Button} {
+        display: block;
     }
 `
 
@@ -54,7 +70,6 @@ const Details = styled.div`
     gap: 0px;
     padding: 0px 2px;
 `
-
 const Title = styled.div`
     font-size: 20px;
     font-weight: 600;
@@ -106,13 +121,13 @@ const Avatar = styled.img`
     border: 3px solid ${({ theme }) => theme.card};
 `
 
-const ProjectCards = ({ project, setOpenModal }) => {
+const ProjectCards = ({project,setOpenModal}) => {
     return (
-        <Card onClick={() => setOpenModal({ state: true, project: project })}>
-            <Image src={project.image} alt={project.title}/>
+        <Card onClick={() => setOpenModal({state: true, project: project})}>
+            <Image src={project.image}/>
             <Tags>
                 {project.tags?.map((tag, index) => (
-                    <Tag key={index}>{tag}</Tag>
+                <Tag>{tag}</Tag>
                 ))}
             </Tags>
             <Details>
@@ -121,12 +136,13 @@ const ProjectCards = ({ project, setOpenModal }) => {
                 <Description>{project.description}</Description>
             </Details>
             <Members>
-                {project.member?.map((member, index) => (
-                    <Avatar key={index} src={member.img} alt={member.name}/>
+                {project.member?.map((member) => (
+                    <Avatar src={member.img}/>
                 ))}
             </Members>
+            {/* <Button>View Project</Button> */}
         </Card>
     )
 }
 
-export default ProjectCards;
+export default ProjectCards

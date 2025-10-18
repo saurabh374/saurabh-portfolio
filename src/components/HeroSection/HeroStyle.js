@@ -13,43 +13,38 @@ export const HeroContainer = styled.div`
   justify-content: center;
   position: relative;
   padding: 80px 30px;
-  z-index: 1;
-
-  /* subtle depth on modern browsers */
-  -webkit-backdrop-filter: saturate(140%) blur(6px);
-  backdrop-filter: saturate(140%) blur(6px);
-
-  /* angled tail */
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 70% 95%, 0 100%);
-
   @media (max-width: 960px) {
     padding: 66px 16px;
   }
-  @media (max-width: 640px) {
+  @media (max-width: 640) {
     padding: 32px 16px;
-    /* clip paths often fight small screens; remove for readability */
-    clip-path: none;
   }
+  z-index: 1;
+
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 70% 95%, 0 100%);
 `;
 
 export const HeroBg = styled.div`
   position: absolute;
-  inset: 0;
   display: flex;
   justify-content: end;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   max-width: 1360px;
   overflow: hidden;
   padding: 0 30px;
-  left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%);
-  pointer-events: none; /* background shouldn’t block clicks */
+  left: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
 
   @media (max-width: 960px) {
     justify-content: center;
-    padding: 0;
+    padding: 0 0px;
   }
 `;
 
@@ -58,20 +53,16 @@ export const HeroInnerContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 24px;
   width: 100%;
   max-width: 1100px;
 
   @media (max-width: 960px) {
     flex-direction: column;
-    gap: 32px;
   }
 `;
-
 export const HeroLeftContainer = styled.div`
   width: 100%;
   order: 1;
-
   @media (max-width: 960px) {
     order: 2;
     margin-bottom: 30px;
@@ -82,7 +73,7 @@ export const HeroLeftContainer = styled.div`
 
   @media (max-width: 640px) {
     order: 2;
-    margin-bottom: 24px;
+    margin-bottom: 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -95,16 +86,15 @@ export const HeroRightContainer = styled.div`
   order: 2;
   justify-content: end;
   gap: 12px;
-
   @media (max-width: 960px) {
     order: 1;
     justify-content: center;
     align-items: center;
-    margin-bottom: 48px;
+    margin-bottom: 80px;
   }
 
   @media (max-width: 640px) {
-    margin-bottom: 24px;
+    margin-bottom: 30px;
   }
 `;
 
@@ -116,23 +106,10 @@ export const Img = styled.img`
   max-height: 400px;
   border-radius: 50%;
   border: 2px solid ${({ theme }) => theme.primary};
-  object-fit: cover;
-
-  /* soft primary glow ring */
-  box-shadow:
-    0 0 0 6px ${({ theme }) => (theme.primary ? theme.primary + '22' : 'rgba(0,0,0,0)')},
-    0 12px 32px rgba(0, 0, 0, 0.25);
-
-  /* gentle float animation */
-  animation: ${floatY} 6s ease-in-out infinite;
-
-  @media (prefers-reduced-motion: reduce) {
-    animation: none;
-  }
 
   @media (max-width: 768px) {
-    max-width: 350px;
-    max-height: 350px;
+    max-width: 400px;
+    max-height: 400px;
   }
 
   @media (max-width: 640px) {
@@ -146,7 +123,6 @@ export const Title = styled.div`
   font-size: 50px;
   color: ${({ theme }) => theme.text_primary};
   line-height: 68px;
-
   @media (max-width: 960px) {
     text-align: center;
   }
@@ -162,21 +138,15 @@ export const TextLoop = styled.div`
   font-weight: 600;
   font-size: 32px;
   display: flex;
-  align-items: center;
   gap: 12px;
   color: ${({ theme }) => theme.text_primary};
   line-height: 68px;
-
   @media (max-width: 960px) {
     text-align: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    line-height: 48px;
   }
-
   @media (max-width: 640px) {
     font-size: 22px;
-    line-height: 36px;
+    line-height: 48px;
     margin-bottom: 16px;
   }
 `;
@@ -184,12 +154,6 @@ export const TextLoop = styled.div`
 export const Span = styled.span`
   color: ${({ theme }) => theme.primary};
   cursor: pointer;
-
-  &:focus-visible {
-    outline: 2px solid ${({ theme }) => theme.primary};
-    outline-offset: 2px;
-    border-radius: 6px;
-  }
 `;
 
 export const SubTitle = styled.div`
@@ -200,58 +164,45 @@ export const SubTitle = styled.div`
 
   @media (max-width: 960px) {
     text-align: center;
-    max-width: 720px;
   }
 
   @media (max-width: 640px) {
     font-size: 16px;
     line-height: 28px;
-    margin-bottom: 24px;
   }
 `;
 
 export const ResumeButton = styled.a`
-  -webkit-appearance: button;
-  -moz-appearance: button;
-  appearance: button;
-  text-decoration: none;
-  width: 95%;
-  max-width: 300px;
-  text-align: center;
-  padding: 16px 0;
-  color: ${({ theme }) => theme.white};
-  border-radius: 20px;
-  cursor: pointer;
-  font-size: 20px;
-  font-weight: 600;
-  transition: transform .15s ease, box-shadow .2s ease, opacity .2s ease;
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+    text-decoration: none;
+    width: 95%;
+    max-width: 300px;
+    text-align: center;
+    padding: 16px 0;
+    color:${({ theme }) => theme.white};
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 600;
+    transition: all 0.2s ease-in-out !important;
+    background: hsla(271, 100%, 50%, 1);
+    background: linear-gradient(225deg, hsla(271, 100%, 50%, 1) 0%, hsla(294, 100%, 50%, 1) 100%);
+    background: -moz-linear-gradient(225deg, hsla(271, 100%, 50%, 1) 0%, hsla(294, 100%, 50%, 1) 100%);
+    background: -webkit-linear-gradient(225deg, hsla(271, 100%, 50%, 1) 0%, hsla(294, 100%, 50%, 1) 100%);
+    box-shadow: 20px 20px 60px #1F2634, -20px -20px 60px #1F2634;
+    &:hover {
+        transform: scale(1.05);
+    transition: all 0.4s ease-in-out;
+    box-shadow:  20px 20px 60px #1F2634,
+    filter: brightness(1);
+    }    
+    
+    
+    @media (max-width: 640px) {
+        padding: 12px 0;
+        font-size: 18px;
+    } 
 
-  /* your gradient */
-  background: linear-gradient(225deg, hsla(271, 100%, 50%, 1) 0%, hsla(294, 100%, 50%, 1) 100%);
-  box-shadow:
-    0 10px 24px rgba(31, 38, 52, 0.45),
-    0 2px 8px rgba(31, 38, 52, 0.25);
-
-  &:hover {
-    transform: translateY(-1px) scale(1.03);
-    box-shadow:
-      0 14px 28px rgba(31, 38, 52, 0.55),
-      0 4px 12px rgba(31, 38, 52, 0.28);
-    filter: brightness(1.02);
-  }
-
-  &:active {
-    transform: translateY(0) scale(0.99);
-    opacity: .95;
-  }
-
-  &:focus-visible {
-    outline: 2px solid ${({ theme }) => theme.primary};
-    outline-offset: 3px;
-  }
-
-  @media (max-width: 640px) {
-    padding: 12px 0;
-    font-size: 18px;
-  }
 `;

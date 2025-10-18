@@ -24,17 +24,34 @@ const GlobalStyle = createGlobalStyle`
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
   }
+
+  html, body, #root {
+    height: 100%;
+  }
+
   body {
     margin: 0;
     background-color: ${({ theme }) => theme.bg};
     color: ${({ theme }) => theme.text_primary};
+    font-family: ${({ theme }) => theme.fonts?.main || "Inter, sans-serif"};
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 16px;
+    line-height: 1.5;
   }
+
+  h1,h2,h3,h4,h5,h6 {
+    font-family: ${({ theme }) => theme.fonts?.title || "Space Grotesk, sans-serif"};
+    margin: 0;
+    color: ${({ theme }) => theme.text_primary};
+    line-height: 1.15;
+  }
+
   ::selection {
     background: ${({ theme }) => theme.primary};
     color: #fff;
   }
 `;
-
 const Body = styled.div`
   background-color: ${({ theme }) => theme.bg};
   width: 100%;

@@ -1,26 +1,31 @@
 export const darkTheme = {
-    bg: "#0E1116",           // Deep charcoal background
-    bgLight: "#1B1F27",      // Slightly lighter panels
-    primary: "#4F8CFF",      // Bright cool blue accent (modern and techy)
-    text_primary: "#F2F3F4", // Clear, high-contrast text
-    text_secondary: "#9AA4B2", // Muted gray-blue for secondary text
-    card: "#1B1F27",         // Unified dark card tone
-    card_light: "#252A34",   // Slightly lighter card hover or highlight
-    button: "#4F8CFF",       // Accent for buttons
+    fonts: {
+        title: "Space Grotesk, Inter, sans-serif",
+        main: "Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif"
+    },
+    primary: "#6C63FF",
     white: "#FFFFFF",
-    black: "#000000",
+    bg: "#071026",
+    bgSoft: "#0f1724",
+    text_primary: "#E6EEF6",
+    text_secondary: "#A6B0BD",
+    muted: "#7D8790",
+    card: "linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01))",
+    shadow: "0 8px 24px rgba(2,6,23,0.6)"
 };
 
-
 export const lightTheme = {
-    bg: "#F5F7FA",           // Neutral light gray (less harsh than pure white)
-    bgLight: "#FFFFFF",      // White panels for contrast
-    primary: "#4F8CFF",      // Same accent as dark mode for brand consistency
-    text_primary: "#1E2025", // Soft black for main text
-    text_secondary: "#5B6573", // Muted gray-blue for subtle text
-    card: "#FFFFFF",         // Clean card base
-    card_light: "#F0F2F5",   // Subtle gray hover state
-    button: "#4F8CFF",       // Consistent accent for buttons
-    white: "#FFFFFF",
-    black: "#000000",
+    fonts: {
+        title: "Space Grotesk, Inter, sans-serif",
+        main: "Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif"
+    },
+    primary: "#6C63FF",
+    white: "#0B1020",
+    bg: "#FBFBFF",
+    bgSoft: "#F6F7FB",
+    text_primary: "#0B1020",
+    text_secondary: "#4A5568",
+    muted: "#6B7280",
+    card: "linear-gradient(180deg, rgba(6,8,23,0.02), rgba(6,8,23,0.01))",
+    shadow: "0 6px 18px rgba(16,24,40,0.06)"
 };

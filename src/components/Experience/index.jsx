@@ -17,10 +17,7 @@ const Container = styled.div`
     position: relative;
     z-index: 1;
     align-items: center;
-    padding: 40px 0px 80px 0px;
-    @media (max-width: 960px) {
-        padding: 0px;
-    }
+    padding: 50px 0px;
 `;
 
 const Wrapper = styled.div`
@@ -30,8 +27,7 @@ const Wrapper = styled.div`
     align-items: center;
     flex-direction: column;
     width: 100%;
-    max-width: 1350px;
-    padding: 80px 0;
+    max-width: 1100px;
     gap: 12px;
     @media (max-width: 960px) {
         flex-direction: column;
@@ -74,24 +70,25 @@ const TimelineSection = styled.div`
 
 
 
-const index = () => {
+
+const Experience = () => {
     return (
         <Container id="experience">
             <Wrapper>
                 <Title>Experience</Title>
                 <Desc>
-                    My work experience as a software engineer and working on different companies and projects.
+                    Here is my work experience as a software engineer.
                 </Desc>
                 <TimelineSection>
                     <Timeline>
-                        {experiences.map((experience,index) => (
+                        {experiences.map((experience, index) => (
                             <TimelineItem>
                                 <TimelineSeparator>
-                                    <TimelineDot variant="outlined" color="secondary" />
+                                    <TimelineDot variant="outlined" color="primary" />
                                     {index !== experiences.length - 1 && <TimelineConnector style={{ background: '#854CE6' }} />}
                                 </TimelineSeparator>
                                 <TimelineContent sx={{ py: '12px', px: 2 }}>
-                                    <ExperienceCard experience={experience}/>
+                                    <ExperienceCard experience={experience} />
                                 </TimelineContent>
                             </TimelineItem>
                         ))}
@@ -103,4 +100,4 @@ const index = () => {
     )
 }
 
-export default index
+export default Experience

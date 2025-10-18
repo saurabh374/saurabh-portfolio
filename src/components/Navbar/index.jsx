@@ -7,8 +7,17 @@ import { useTheme } from 'styled-components';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('');
   const theme = useTheme();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 80); // Update on scroll
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   useEffect(() => {
     const sections = document.querySelectorAll('section, div[id]');
@@ -44,7 +53,7 @@ const Navbar = () => {
   };
 
   return (
-    <Nav>
+    <Nav className={scrolled ? 'scrolled' : ''}>
       <NavbarContainer>
         <NavLogo to='/'>
           <a style={{ display: "flex", alignItems: "center", color: "white", cursor: 'pointer' }}>
@@ -52,8 +61,8 @@ const Navbar = () => {
           </a>
         </NavLogo>
 
-        <MobileIcon>
-          <FaBars onClick={() => setIsOpen(!isOpen)} />
+        <MobileIcon onClick={() => setIsOpen(!isOpen)}>
+          <FaBars />
         </MobileIcon>
 
         <NavItems>

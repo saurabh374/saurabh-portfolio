@@ -36,7 +36,7 @@ text-overflow: ellipsis;
 const Card = styled.div`
     width: 650px;
     border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+    box-shadow: rgba(23, 92, 230, 0.15) 0px 4px 24px;
     padding: 12px 16px;
     justify-content: space-between;
     position: relative;
@@ -65,8 +65,7 @@ const Card = styled.div`
 
     }
 
-    border: 0.1px solid #306EE8;
-    box-shadow: rgba(23, 92, 230, 0.15) 0px 4px 24px;
+    border: 0.1px solid #854CE6;
 `
 
 const Top = styled.div`
@@ -74,35 +73,17 @@ const Top = styled.div`
     display: flex;
     gap: 12px
 `
+
 const Image = styled.img`
-  height: 100%;
-  width: 100%;
-  object-fit: contain;
-  border-radius: 10px;
-`;
-const LogoWrap = styled.div`
-  position: relative;
-  height: 56px;
-  width: 56px;
-  min-width: 56px;
-  border-radius: 14px;
-  background: #0a0a0a;
-  display: grid;
-  place-items: center;
-  padding: 6px;
+    height: 50px;
+    background-color: #000;
+    border-radius: 10px;
+    margin-top: 4px;
+    @media only screen and (max-width: 768px){
+        height: 40px;
+    }
+`
 
-  box-shadow:
-    0 0 0 2px rgba(48, 110, 232, 0.6) inset,
-    0 6px 16px rgba(0, 0, 0, 0.15);
-
-  @media (max-width: 768px) {
-    height: 46px;
-    width: 46px;
-    min-width: 46px;
-    border-radius: 12px;
-    padding: 5px;
-  }
-`;
 const Body = styled.div`
     width: 100%;
     display: flex;
@@ -142,7 +123,7 @@ const Skills = styled.div`
     width: 100%;
     display: flex;
     gap: 12px;
-    margin-top: -10px;
+    margin-top: 10px;
 `
 
 const ItemWrapper = styled.div`
@@ -166,16 +147,11 @@ const ExperienceCard = ({ experience }) => {
   return (
     <Card>
       <Top>
-        <LogoWrap>
-          <Image
-            src={experience.img}
-            alt={`${experience.company} logo`}
-            onError={(e) => {
-              if (e?.currentTarget?.src !== experience.defaultImg)
-                e.currentTarget.src = experience.defaultImg;
-            }}
-          />
-        </LogoWrap>
+        <Image src={experience.img} alt={`${experience.company} logo`}
+          onError={(e) => {
+            if (e?.currentTarget?.src !== experience.defaultImg)
+              e.currentTarget.src = experience.defaultImg;
+          }} />
         <Body>
           <Role>{experience.role}</Role>
           <Company>{experience.company}</Company>
