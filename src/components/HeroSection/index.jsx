@@ -38,7 +38,12 @@ const HeroSection = () => {
                         >
                             <Title>
                                 Hi, I’m <br />
-                                <Span>
+                                <Span style={{
+                                    background: 'linear-gradient(90deg, #6C63FF, #B367F1)',
+                                    WebkitBackgroundClip: 'text',
+                                    WebkitTextFillColor: 'transparent',
+                                    display: 'inline-block'
+                                }}>
                                     {Bio.name}
                                 </Span>
                             </Title>
@@ -70,6 +75,13 @@ const HeroSection = () => {
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     aria-label="View Resume"
+                                    style={{
+                                        background:
+                                            "linear-gradient(135deg, #6C63FF 0%, #854CE6 100%)",
+                                        color: "#fff",
+                                        boxShadow: "0 6px 20px rgba(108,99,255,0.3)",
+                                        backdropFilter: "blur(6px)",
+                                    }}
                                 >
                                     🚀 Check Resume
                                 </ResumeButton>
