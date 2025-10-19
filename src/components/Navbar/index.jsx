@@ -56,9 +56,7 @@ const Navbar = () => {
     <Nav className={scrolled ? 'scrolled' : ''}>
       <NavbarContainer>
         <NavLogo to='/'>
-          <a style={{ display: "flex", alignItems: "center", color: "white", cursor: 'pointer' }}>
             <DiCssdeck size="3rem" /> <Span>Portfolio</Span>
-          </a>
         </NavLogo>
 
         <MobileIcon onClick={() => setIsOpen(!isOpen)}>

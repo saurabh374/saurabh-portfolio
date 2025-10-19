@@ -1,5 +1,6 @@
 import React, { useMemo, useState } from "react";
-import styled, { keyframes } from "@emotion/styled";
+import styled from "@emotion/styled";
+import { keyframes } from "@emotion/react";
 import { skills, skills as skillsData } from "../../data/constants";
 
 
@@ -135,12 +136,12 @@ const Skills = () => {
         <Desc>Here are some of my skills on which I have been working on for the past ~4 years.
         </Desc>
         <SkillsContainer>
-          {skills.map((skill) => (
-            <Skill>
+          {skills.map((skill, index) => (
+            <Skill key={index}>
               <SkillTitle>{skill.title}</SkillTitle>
               <SkillList>
-                {skill.skills.map((item) => (
-                  <SkillItem>
+                {skill.skills.map((item, index) => (
+                  <SkillItem key={index}>
                     <SkillImage src={item.image}
                       onError={(e) => {
                         if (e?.currentTarget?.src !== item.defaultImg)

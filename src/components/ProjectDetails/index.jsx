@@ -1,7 +1,8 @@
 import { CloseRounded, Launch, Code } from '@mui/icons-material';
 import { Modal } from '@mui/material';
 import React from 'react';
-import styled, { keyframes } from '@emotion/styled';
+import styled from '@emotion/styled';
+import { keyframes } from '@emotion/react';
 
 const Container = styled.div`
   width: 100%;
