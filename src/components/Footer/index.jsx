@@ -5,7 +5,7 @@ import LocationOnIcon from "@mui/icons-material/LocationOn";
 import PictureAsPdfIcon from "@mui/icons-material/PictureAsPdf";
 import LaunchIcon from "@mui/icons-material/Launch";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
-import styled from "styled-components";
+import styled from "@emotion/styled";
 import { Bio } from "../../data/constants";
 
 const FooterContainer = styled.div`
@@ -25,13 +25,13 @@ const FooterWrapper = styled.footer`
   gap: 14px;
   align-items: center;
   padding: 1rem;
-  color: ${({ theme }) => theme.text_primary};
+  color: ${(props) => props.theme.text_primary};
 `;
 
 const Logo = styled.h1`
   font-weight: 600;
   font-size: 20px;
-  color: ${({ theme }) => theme.primary};
+  color: ${(props) => props.theme.primary};
 `;
 
 const Nav = styled.nav`
@@ -52,12 +52,12 @@ const Nav = styled.nav`
 `;
 
 const NavLink = styled.a`
-color: ${({ theme }) => theme.text_primary};
+color: ${(props) => props.theme.text_primary};
   text-decoration: none;
   font-size: 1.2rem;
   transition: color 0.2s ease-in-out;
   &:hover {
-    color: ${({ theme }) => theme.primary};
+    color: ${(props) => props.theme.primary};
   }
   @media (max-width: 768px) {
     font-size: 1rem;
@@ -73,17 +73,17 @@ const SocialMediaIcon = styled.a`
   display: inline-block;
   margin: 0 1rem;
   font-size: 1.5rem;
-  color: ${({ theme }) => theme.text_primary};
+  color: ${(props) => props.theme.text_primary};
   transition: color 0.2s ease-in-out;
   &:hover {
-    color: ${({ theme }) => theme.primary};
+    color: ${(props) => props.theme.primary};
   }
 `;
 
 const Copyright = styled.p`
   margin-top: 1.5rem;
   font-size: 0.9rem;
-  color: ${({ theme }) => theme.soft2};
+  color: ${(props) => props.theme.soft2};
   text-align: center;
 `;
 

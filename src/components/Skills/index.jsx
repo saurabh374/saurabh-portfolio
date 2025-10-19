@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from "react";
-import styled, { keyframes } from "styled-components";
+import styled, { keyframes } from "@emotion/styled";
 import { skills, skills as skillsData } from "../../data/constants";
 
 
@@ -38,7 +38,7 @@ font-size: 42px;
 text-align: center;
 font-weight: 600;
 margin-top: 20px;
-  color: ${({ theme }) => theme.text_primary};
+  color: ${(props) => props.theme.text_primary};
   @media (max-width: 768px) {
 margin-top: 12px;
       font-size: 32px;
@@ -49,7 +49,7 @@ export const Desc = styled.div`
     font-size: 18px;
     text-align: center;
     max-width: 600px;
-    color: ${({ theme }) => theme.text_secondary};
+    color: ${(props) => props.theme.text_secondary};
     @media (max-width: 768px) {
         font-size: 16px;
     }
@@ -67,7 +67,7 @@ const SkillsContainer = styled.div`
 const Skill = styled.div`
   width: 100%;
   max-width: 500px;
-  background: ${({ theme }) => theme.card};
+  background: ${(props) => props.theme.card};
   border: 0.1px solid #854CE6;
   box-shadow: rgba(23, 92, 230, 0.15) 0px 4px 24px;
   border-radius: 16px;
@@ -87,7 +87,7 @@ const Skill = styled.div`
 const SkillTitle = styled.h2`
   font-size: 28px;
   font-weight: 600;
-  color: ${({ theme }) => theme.text_secondary};
+  color: ${(props) => props.theme.text_secondary};
   margin-bottom: 20px;
   text-align: center;
 `
@@ -103,8 +103,8 @@ const SkillList = styled.div`
 const SkillItem = styled.div`
   font-size: 16px;
   font-weight: 400;
-  color: ${({ theme }) => theme.text_primary + 80};
-  border: 1px solid ${({ theme }) => theme.text_primary + 80};
+  color: ${(props) => props.theme.text_primary + 80};
+  border: 1px solid ${(props) => props.theme.text_primary + 80};
   border-radius: 12px;
   padding: 12px 16px;
   display: flex;

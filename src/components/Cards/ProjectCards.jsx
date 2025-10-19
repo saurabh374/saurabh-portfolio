@@ -1,12 +1,12 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled from '@emotion/styled'
 
 const Button = styled.button`
     display: none;
     width: 100%;
     padding: 10px;
-    background-color: ${({ theme }) => theme.white};
-    color: ${({ theme }) => theme.text_black};
+    background-color: ${(props) => props.theme.white};
+    color: ${(props) => props.theme.text_black};
     font-size: 14px;
     font-weight: 700;
     border: none;
@@ -17,7 +17,7 @@ const Button = styled.button`
 const Card = styled.div`
     width: 330px;
     height: 490px;
-    background-color: ${({ theme }) => theme.card};
+    background-color: ${(props) => props.theme.card};
     cursor: pointer;
     border-radius: 10px;
     box-shadow: 0 0 12px 4px rgba(0,0,0,0.4);
@@ -40,7 +40,7 @@ const Card = styled.div`
 const Image = styled.img`
     width: 100%;
     height: 180px;
-    background-color: ${({ theme }) => theme.white};
+    background-color: ${(props) => props.theme.white};
     border-radius: 10px;
     box-shadow: 0 0 16px 2px rgba(0,0,0,0.3);
 `
@@ -57,8 +57,8 @@ const Tags = styled.div`
 const Tag = styled.span`
     font-size: 12px;
     font-weight: 400;
-    color: ${({ theme }) => theme.primary};
-    background-color: ${({ theme }) => theme.primary + 15};
+    color: ${(props) => props.theme.primary};
+    background-color: ${(props) => props.theme.primary + 15};
     padding: 2px 8px;
     border-radius: 10px;
 `
@@ -73,7 +73,7 @@ const Details = styled.div`
 const Title = styled.div`
     font-size: 20px;
     font-weight: 600;
-    color: ${({ theme }) => theme.text_secondary};
+    color: ${(props) => props.theme.text_secondary};
     overflow: hidden;
     display: -webkit-box;
     max-width: 100%;
@@ -87,7 +87,7 @@ const Date = styled.div`
     font-size: 12px;
     margin-left: 2px;
     font-weight: 400;
-    color: ${({ theme }) => theme.text_secondary + 80};
+    color: ${(props) => props.theme.text_secondary + 80};
     @media only screen and (max-width: 768px){
         font-size: 10px;
     }
@@ -95,7 +95,7 @@ const Date = styled.div`
 
 const Description = styled.div`
     font-weight: 400;
-    color: ${({ theme }) => theme.text_secondary + 99};
+    color: ${(props) => props.theme.text_secondary + 99};
     overflow: hidden;
     margin-top: 8px;
     display: -webkit-box;
@@ -116,9 +116,9 @@ const Avatar = styled.img`
     height: 38px;
     border-radius: 50%;
     margin-left: -10px;
-    background-color: ${({ theme }) => theme.white};
+    background-color: ${(props) => props.theme.white};
     box-shadow: 0 0 10px rgba(0,0,0,0.2);
-    border: 3px solid ${({ theme }) => theme.card};
+    border: 3px solid ${(props) => props.theme.card};
 `
 
 const ProjectCards = ({project,setOpenModal}) => {

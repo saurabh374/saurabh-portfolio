@@ -1,8 +1,9 @@
 import React, { useEffect, useMemo, useState, Suspense, lazy } from "react";
-import { ThemeProvider, createGlobalStyle } from "styled-components";
+import { ThemeProvider } from "@emotion/react";
+import { Global, css } from "@emotion/react";
+import styled from "@emotion/styled";
 import { darkTheme, lightTheme } from "./utils/Themes.js";
 import { BrowserRouter as Router } from "react-router-dom";
-import styled from "styled-components";
 
 import Navbar from "./components/Navbar";
 import HeroSection from "./components/HeroSection";
@@ -17,10 +18,16 @@ import Footer from "./components/Footer";
 const Projects = lazy(() => import("./components/Projects"));
 const ProjectDetails = lazy(() => import("./components/ProjectDetails"));
 
-const GlobalStyle = createGlobalStyle`
-  :root { color-scheme: ${({ theme }) => (theme === lightTheme ? "light" : "dark")}; }
-  * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
+const globalStyles = (theme) => css`
+  :root {
+    color-scheme: ${theme === lightTheme ? "light" : "dark"};
+  }
+  * {
+    box-sizing: border-box;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
   }
@@ -31,9 +38,9 @@ const GlobalStyle = createGlobalStyle`
 
   body {
     margin: 0;
-    background-color: ${({ theme }) => theme.bg};
-    color: ${({ theme }) => theme.text_primary};
-    font-family: ${({ theme }) => theme.fonts?.main || "Inter, sans-serif"};
+    background-color: ${theme.bg};
+    color: ${theme.text_primary};
+    font-family: ${theme.fonts?.main || "Inter, sans-serif"};
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-size: 16px;
@@ -41,21 +48,24 @@ const GlobalStyle = createGlobalStyle`
   }
 
   h1,h2,h3,h4,h5,h6 {
-    font-family: ${({ theme }) => theme.fonts?.title || "Space Grotesk, sans-serif"};
+    font-family: ${theme.fonts?.title || "Space Grotesk, sans-serif"};
     margin: 0;
-    color: ${({ theme }) => theme.text_primary};
+    color: ${theme.text_primary};
     line-height: 1.15;
   }
 
   ::selection {
-    background: ${({ theme }) => theme.primary};
+    background: ${theme.primary};
     color: #fff;
   }
 `;
 const Body = styled.div`
-  background-color: ${({ theme }) => theme.bg};
+  background-color: ${(props) => props.theme.bg};
   width: 100%;
   overflow-x: hidden;
+  background:
+    linear-gradient(38.73deg, rgba(204, 0, 187, 0.15) 0%, rgba(201, 32, 184, 0) 50%),
+    linear-gradient(141.27deg, rgba(0, 70, 209, 0) 50%, rgba(0, 70, 209, 0.15) 100%);
 `;
 
 const Wrapper = styled.div`
@@ -63,11 +73,7 @@ const Wrapper = styled.div`
     linear-gradient(38.73deg, rgba(204, 0, 187, 0.15) 0%, rgba(201, 32, 184, 0) 50%),
     linear-gradient(141.27deg, rgba(0, 70, 209, 0) 50%, rgba(0, 70, 209, 0.15) 100%);
   width: 100%;
-  /* friendlier on mobile to avoid the 98% notch */
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 28% 98%, 0 100%);
-  @media (max-width: 768px) {
-    clip-path: none;
-  }
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 70% 95%, 0 100%);
 `;
 
 const Toggle = styled.button`
@@ -75,9 +81,9 @@ const Toggle = styled.button`
   right: 16px;
   bottom: 20px;
   z-index: 1100;
-  border: 1px solid ${({ theme }) => theme.text_secondary}55;
-  background: ${({ theme }) => theme.card};
-  color: ${({ theme }) => theme.text_primary};
+  border: 1px solid ${(props) => props.theme.text_secondary}55;
+  background: ${(props) => props.theme.card};
+  color: ${(props) => props.theme.text_primary};
   border-radius: 12px;
   padding: 8px 12px;
   font-weight: 700;
@@ -112,7 +118,7 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <GlobalStyle />
+      <Global styles={globalStyles(theme)} />
       <Router>
         <Navbar />
         <Body>

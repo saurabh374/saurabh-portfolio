@@ -1,5 +1,5 @@
 import { Link as LinkR } from 'react-router-dom';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 
 /* Helper: convert hex (#RRGGBB) to rgba with alpha */
 const withAlpha = (hex, alpha = 0.6) => {
@@ -13,7 +13,7 @@ const withAlpha = (hex, alpha = 0.6) => {
 };
 
 export const Nav = styled.div`
-    background-color: ${({theme}) => theme.card_light};
+    background-color: ${(props) => props.theme.card_light};
     height: 80px;
     display: flex;
     align-items: center;
@@ -68,29 +68,29 @@ export const NavItems = styled.ul`
 `;
 
 export const NavLink = styled.a`
-    color: ${({ theme }) => theme.text_primary};
+    color: ${(props) => props.theme.text_primary};
     font-weight: 500;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
     text-decoration: none;
     :hover {
-      color: ${({ theme }) => theme.primary};
+      color: ${(props) => props.theme.primary};
     }
 
     &.active {
-      border-bottom: 2px solid ${({ theme }) => theme.primary};
+      border-bottom: 2px solid ${(props) => props.theme.primary};
     }
 `;
 
 
 export const GitHubButton = styled.a`
-  border: 1.8px solid ${({ theme }) => theme.primary};
+  border: 1.8px solid ${(props) => props.theme.primary};
   justify-content: center;
   display: flex;
   align-items: center;
   height: 70%;
   border-radius: 20px;
-  color: ${({ theme }) => theme.primary};
+  color: ${(props) => props.theme.primary};
   cursor: pointer;
   padding: 0 20px;
   font-weight: 500;
@@ -98,8 +98,8 @@ export const GitHubButton = styled.a`
   font-size: 16px;
   transition: all 0.6s ease-in-out;
     :hover {
-      background: ${({ theme }) => theme.primary};
-      color: ${({ theme }) => theme.white};     
+      background: ${(props) => props.theme.primary};
+      color: ${(props) => props.theme.white};
     }
     @media screen and (max-width: 768px) { 
     font-size: 14px;
@@ -129,7 +129,7 @@ export const MobileIcon = styled.div`
     transform: translate(-100%, 60%);
     font-size: 1.5rem;
     cursor: pointer;
-    color: ${({ theme }) => theme.text_primary};
+    color: ${(props) => props.theme.text_primary};
   }
 `
 
@@ -143,13 +143,13 @@ export const MobileMenu = styled.div`
     right: 0;
     width: 100%;
     padding: 12px 40px 24px 40px;
-    background: ${({ theme }) => theme.card_light+99};
+    background: ${(props) => props.theme.card_light+99};
     transition: all 0.6s ease-in-out;
-    transform: ${({ isOpen }) => (isOpen ? 'translateY(0)' : 'translateY(-100%)')};
+    transform: ${(props) => (props.isOpen ? 'translateY(0)' : 'translateY(-100%)')};
     border-radius: 0 0 20px 20px;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
-    opacity: ${({ isOpen }) => (isOpen ? '100%' : '0')};
-    z-index: ${({ isOpen }) => (isOpen ? '1000' : '-1000')};
+    opacity: ${(props) => (props.isOpen ? '100%' : '0')};
+    z-index: ${(props) => (props.isOpen ? '1000' : '-1000')};
 
 `
 
@@ -165,28 +165,28 @@ export const MobileMenuItems = styled.ul`
 `
 
 export const MobileMenuLink = styled(LinkR)`
-  color: ${({ theme }) => theme.text_primary};
+  color: ${(props) => props.theme.text_primary};
   font-weight: 500;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   text-decoration: none;
   :hover {
-    color: ${({ theme }) => theme.primary};
+    color: ${(props) => props.theme.primary};
   }
 
   &.active {
-    border-bottom: 2px solid ${({ theme }) => theme.primary};
+    border-bottom: 2px solid ${(props) => props.theme.primary};
   }
 `;
 
 export const MobileMenuButton = styled.a`
-  border: 1.8px solid ${({ theme }) => theme.primary};
+  border: 1.8px solid ${(props) => props.theme.primary};
   justify-content: center;
   display: flex;
   align-items: center;
   height: 70%;
   border-radius: 20px;
-  color: ${({ theme }) => theme.primary};
+  color: ${(props) => props.theme.primary};
   cursor: pointer;
   padding: 0 20px;
   font-weight: 500;
@@ -195,23 +195,23 @@ export const MobileMenuButton = styled.a`
   transition: all 0.6s ease-in-out;
 
   :hover {
-    background: ${({ theme }) => theme.primary};
-    color: ${({ theme }) => theme.white};
+    background: ${(props) => props.theme.primary};
+    color: ${(props) => props.theme.white};
   }
 `;
 
 export  const MobileLink = styled.a`
-  color: ${({ theme }) => theme.text_primary};
+  color: ${(props) => props.theme.text_primary};
   font-weight: 500;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   text-decoration: none;
   :hover {
-    color: ${({ theme }) => theme.primary};
+    color: ${(props) => props.theme.primary};
   }
 
   &.active {
-    border-bottom: 2px solid ${({ theme }) => theme.primary};
+    border-bottom: 2px solid ${(props) => props.theme.primary};
   }
 `;
 

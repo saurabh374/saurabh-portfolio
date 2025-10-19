@@ -3,7 +3,7 @@ import { Nav, NavLink, NavbarContainer, Span, NavLogo, NavItems, GitHubButton, B
 import { DiCssdeck } from 'react-icons/di';
 import { FaBars } from 'react-icons/fa';
 import { Bio } from '../../data/constants';
-import { useTheme } from 'styled-components';
+import { useTheme } from '@emotion/react';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);

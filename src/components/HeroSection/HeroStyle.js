@@ -1,4 +1,5 @@
-import styled, { keyframes } from "styled-components";
+import { keyframes } from "@emotion/react";
+import styled from "@emotion/styled";
 
 /* gentle float for the avatar (respects reduced motion in usage) */
 const floatY = keyframes`
@@ -8,7 +9,7 @@ const floatY = keyframes`
 `;
 
 export const HeroContainer = styled.div`
-  background: ${({ theme }) => theme.card_light};
+  background: ${(props) => props.theme.bgLight};
   display: flex;
   justify-content: center;
   position: relative;
@@ -98,14 +99,20 @@ export const HeroRightContainer = styled.div`
   }
 `;
 
-export const Img = styled.img`
+export const HeroImage = styled.img`
   position: relative;
   width: 100%;
   height: 100%;
   max-width: 400px;
   max-height: 400px;
   border-radius: 50%;
-  border: 2px solid ${({ theme }) => theme.primary};
+  border: 2px solid ${(props) => props.theme.primary};
+  animation: ${floatY} 4s ease-in-out infinite;
+
+  /* Glassmorphism effect */
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
 
   @media (max-width: 768px) {
     max-width: 400px;
@@ -119,18 +126,21 @@ export const Img = styled.img`
 `;
 
 export const Title = styled.div`
-  font-weight: 700;
-  font-size: 50px;
-  color: ${({ theme }) => theme.text_primary};
-  line-height: 68px;
+  font-weight: 800;
+  font-size: 52px;
+  color: ${(props) => props.theme.text_primary};
+  line-height: 1.1;
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
   @media (max-width: 960px) {
     text-align: center;
+    font-size: 48px;
   }
 
   @media (max-width: 640px) {
     font-size: 40px;
-    line-height: 48px;
-    margin-bottom: 8px;
+    line-height: 1.2;
+    margin-bottom: 12px;
   }
 `;
 
@@ -139,7 +149,7 @@ export const TextLoop = styled.div`
   font-size: 32px;
   display: flex;
   gap: 12px;
-  color: ${({ theme }) => theme.text_primary};
+  color: ${(props) => props.theme.text_primary};
   line-height: 68px;
   @media (max-width: 960px) {
     text-align: center;
@@ -152,23 +162,25 @@ export const TextLoop = styled.div`
 `;
 
 export const Span = styled.span`
-  color: ${({ theme }) => theme.primary};
+  color: ${(props) => props.theme.primary};
   cursor: pointer;
 `;
 
 export const SubTitle = styled.div`
-  font-size: 20px;
-  line-height: 32px;
+  font-size: 22px;
+  line-height: 1.6;
   margin-bottom: 42px;
-  color: ${({ theme }) => theme.text_primary + 95};
+  color: ${(props) => props.theme.text_primary + 'cc'};
+  letter-spacing: 0.5px;
 
   @media (max-width: 960px) {
     text-align: center;
+    font-size: 20px;
   }
 
   @media (max-width: 640px) {
-    font-size: 16px;
-    line-height: 28px;
+    font-size: 18px;
+    line-height: 1.5;
   }
 `;
 
@@ -181,23 +193,20 @@ export const ResumeButton = styled.a`
     max-width: 300px;
     text-align: center;
     padding: 16px 0;
-    color:${({ theme }) => theme.white};
+    color:${(props) => props.theme.white};
     border-radius: 20px;
     cursor: pointer;
     font-size: 20px;
     font-weight: 600;
     transition: all 0.2s ease-in-out !important;
-    background: hsla(271, 100%, 50%, 1);
-    background: linear-gradient(225deg, hsla(271, 100%, 50%, 1) 0%, hsla(294, 100%, 50%, 1) 100%);
-    background: -moz-linear-gradient(225deg, hsla(271, 100%, 50%, 1) 0%, hsla(294, 100%, 50%, 1) 100%);
-    background: -webkit-linear-gradient(225deg, hsla(271, 100%, 50%, 1) 0%, hsla(294, 100%, 50%, 1) 100%);
-    box-shadow: 20px 20px 60px #1F2634, -20px -20px 60px #1F2634;
+    background: ${(props) => props.theme.primary};
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
     &:hover {
         transform: scale(1.05);
-    transition: all 0.4s ease-in-out;
-    box-shadow:  20px 20px 60px #1F2634,
-    filter: brightness(1);
-    }    
+        transition: all 0.4s ease-in-out;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+        filter: brightness(1.1);
+    }
     
     
     @media (max-width: 640px) {
