@@ -1,6 +1,6 @@
 
 import React from 'react'
-import styled from 'styled-components'
+import styled from '@emotion/styled'
 import Timeline from '@mui/lab/Timeline';
 import TimelineItem from '@mui/lab/TimelineItem';
 import TimelineSeparator from '@mui/lab/TimelineSeparator';
@@ -39,7 +39,7 @@ font-size: 42px;
 text-align: center;
 font-weight: 600;
 margin-top: 20px;
-  color: ${({ theme }) => theme.text_primary};
+  color: ${(props) => props.theme.text_primary};
   @media (max-width: 768px) {
       margin-top: 12px;
       font-size: 32px;
@@ -50,7 +50,7 @@ const Desc = styled.div`
     font-size: 18px;
     text-align: center;
     max-width: 600px;
-    color: ${({ theme }) => theme.text_secondary};
+    color: ${(props) => props.theme.text_secondary};
     @media (max-width: 768px) {
         margin-top: 12px;
         font-size: 16px;
@@ -82,7 +82,7 @@ const Experience = () => {
                 <TimelineSection>
                     <Timeline>
                         {experiences.map((experience, index) => (
-                            <TimelineItem>
+                            <TimelineItem key={index}>
                                 <TimelineSeparator>
                                     <TimelineDot variant="outlined" color="primary" />
                                     {index !== experiences.length - 1 && <TimelineConnector style={{ background: '#854CE6' }} />}

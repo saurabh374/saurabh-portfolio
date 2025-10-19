@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled from "@emotion/styled";
 
 const Div = styled.div`
   position: relative;
@@ -10,9 +10,9 @@ const Div = styled.div`
   transform: translateZ(0); /* promote to its own layer */
 
   /* expose theme colors as CSS variables */
-  --accent: ${({ theme }) => theme.primary || "#6C63FF"};
-  --stroke: ${({ theme }) => (theme.text_primary ? theme.text_primary + "22" : "#ffffff22")};
-  --stroke-strong: ${({ theme }) => (theme.text_primary ? theme.text_primary + "55" : "#ffffff55")};
+  --accent: ${(props) => props.theme.primary || "#6C63FF"};
+  --stroke: ${(props) => (props.theme.text_primary ? props.theme.text_primary + "22" : "#ffffff22")};
+  --stroke-strong: ${(props) => (props.theme.text_primary ? props.theme.text_primary + "55" : "#ffffff55")};
 
   /* improve contrast slightly in light themes */
   @media (prefers-color-scheme: light) {

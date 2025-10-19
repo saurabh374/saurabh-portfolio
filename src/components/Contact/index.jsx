@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import styled from "styled-components";
+import styled from "@emotion/styled";
 import emailjs from "@emailjs/browser";
 import Snackbar from "@mui/material/Snackbar";
 import Alert from "@mui/material/Alert";
@@ -36,7 +36,7 @@ const Title = styled.div`
   text-align: center;
   font-weight: 600;
   margin-top: 20px;
-  color: ${({ theme }) => theme.text_primary};
+  color: ${(props) => props.theme.text_primary};
   @media (max-width: 768px) {
     margin-top: 12px;
     font-size: 32px;
@@ -47,7 +47,7 @@ const Desc = styled.div`
   font-size: 18px;
   text-align: center;
   max-width: 600px;
-  color: ${({ theme }) => theme.text_secondary};
+  color: ${(props) => props.theme.text_secondary};
   @media (max-width: 768px) {
     margin-top: 12px;
     font-size: 16px;
@@ -59,7 +59,7 @@ const ContactForm = styled.form`
   max-width: 600px;
   display: flex;
   flex-direction: column;
-  background-color: ${({ theme }) => theme.card};
+  background-color: ${(props) => props.theme.card};
   padding: 32px;
   border-radius: 16px;
   box-shadow: rgba(23, 92, 230, 0.15) 0px 4px 24px;
@@ -71,15 +71,15 @@ const ContactTitle = styled.div`
   font-size: 24px;
   margin-bottom: 6px;
   font-weight: 600;
-  color: ${({ theme }) => theme.text_primary};
+  color: ${(props) => props.theme.text_primary};
 `;
 
 const Label = styled.label`
   font-size: 13px;
-  color: ${({ theme }) => theme.text_secondary};
+  color: ${(props) => props.theme.text_secondary};
 `;
 
-const InputBase = `
+const InputBase = (props) => `
   flex: 1;
   background-color: transparent;
   border: 1px solid currentColor;
@@ -90,19 +90,21 @@ const InputBase = `
   padding: 12px 14px;
   transition: border-color .15s ease, box-shadow .15s ease;
   &::placeholder { opacity: .7; }
-  &:focus { border-color: ${({ theme }) => theme.primary}; box-shadow: 0 0 0 3px rgba(79,140,255,.15); }
+  &:focus { border-color: ${props.theme.primary}; box-shadow: 0 0 0 3px rgba(79,140,255,.15); }
 `;
 
 const FieldWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 6px;
-  color: ${({ theme }) => theme.text_secondary};
+  color: ${(props) => props.theme.text_secondary};
 `;
 
-const ContactInput = styled.input`${InputBase}`;
+const ContactInput = styled.input`
+  ${(props) => InputBase(props)}
+`;
 const ContactInputMessage = styled.textarea`
-  ${InputBase};
+  ${(props) => InputBase(props)}
   min-height: 110px;
   resize: vertical;
 `;

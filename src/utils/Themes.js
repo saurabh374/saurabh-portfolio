@@ -1,31 +1,58 @@
-export const darkTheme = {
-    fonts: {
-        title: "Space Grotesk, Inter, sans-serif",
-        main: "Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif"
-    },
-    primary: "#6C63FF",
-    white: "#FFFFFF",
-    bg: "#071026",
-    bgSoft: "#0f1724",
-    text_primary: "#E6EEF6",
-    text_secondary: "#A6B0BD",
-    muted: "#7D8790",
-    card: "linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01))",
-    shadow: "0 8px 24px rgba(2,6,23,0.6)"
-};
+import { createTheme } from '@mui/material/styles';
 
-export const lightTheme = {
+export const darkTheme = createTheme({
+    palette: {
+        mode: 'dark',
+        primary: {
+            main: '#854CE6',
+        },
+        background: {
+            default: '#000000',
+            paper: '#1C1C27',
+        },
+        text: {
+            primary: '#F2F3F4',
+            secondary: '#b1b2b3',
+        },
+    },
     fonts: {
         title: "Space Grotesk, Inter, sans-serif",
         main: "Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif"
     },
-    primary: "#6C63FF",
-    white: "#0B1020",
-    bg: "#FBFBFF",
-    bgSoft: "#F6F7FB",
-    text_primary: "#0B1020",
-    text_secondary: "#4A5568",
-    muted: "#6B7280",
-    card: "linear-gradient(180deg, rgba(6,8,23,0.02), rgba(6,8,23,0.01))",
+    // Custom properties
+    bg: "#000000",
+    bgLight: "#1C1C27",
+    card: "#171721",
+    card_light: '#191924',
+    button: "#854CE6",
+    white: "#FFFFFF",
+    shadow: "0 8px 24px rgba(2,6,23,0.6)"
+});
+
+export const lightTheme = createTheme({
+    palette: {
+        mode: 'light',
+        primary: {
+            main: '#854CE6',
+        },
+        background: {
+            default: '#FFFFFF',
+            paper: '#f0f0f0',
+        },
+        text: {
+            primary: '#111111',
+            secondary: '#48494a',
+        },
+    },
+    fonts: {
+        title: "Space Grotesk, Inter, sans-serif",
+        main: "Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif"
+    },
+    // Custom properties
+    bg: "#FFFFFF",
+    bgLight: "#f0f0f0",
+    card: "#FFFFFF",
+    button: "#5c5b5b",
+    white: "#FFFFFF",
     shadow: "0 6px 18px rgba(16,24,40,0.06)"
-};
+});

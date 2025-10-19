@@ -3,7 +3,7 @@ import { Nav, NavLink, NavbarContainer, Span, NavLogo, NavItems, GitHubButton, B
 import { DiCssdeck } from 'react-icons/di';
 import { FaBars } from 'react-icons/fa';
 import { Bio } from '../../data/constants';
-import { useTheme } from 'styled-components';
+import { useTheme } from '@emotion/react';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -56,9 +56,7 @@ const Navbar = () => {
     <Nav className={scrolled ? 'scrolled' : ''}>
       <NavbarContainer>
         <NavLogo to='/'>
-          <a style={{ display: "flex", alignItems: "center", color: "white", cursor: 'pointer' }}>
             <DiCssdeck size="3rem" /> <Span>Portfolio</Span>
-          </a>
         </NavLogo>
 
         <MobileIcon onClick={() => setIsOpen(!isOpen)}>

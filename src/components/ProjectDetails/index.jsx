@@ -1,7 +1,8 @@
 import { CloseRounded, Launch, Code } from '@mui/icons-material';
 import { Modal } from '@mui/material';
 import React from 'react';
-import styled, { keyframes } from 'styled-components';
+import styled from '@emotion/styled';
+import { keyframes } from '@emotion/react';
 
 const Container = styled.div`
   width: 100%;
@@ -20,8 +21,8 @@ const Container = styled.div`
 const Wrapper = styled.div`
   max-width: 860px;
   width: 100%;
-  background-color: ${({ theme }) => theme.card};
-  color: ${({ theme }) => theme.text_primary};
+  background-color: ${(props) => props.theme.card};
+  color: ${(props) => props.theme.text_primary};
   border-radius: 20px;
   padding: 28px 32px;
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
@@ -34,7 +35,7 @@ const Wrapper = styled.div`
 const Title = styled.h3`
   font-size: 30px;
   font-weight: 700;
-  color: ${({ theme }) => theme.text_primary};
+  color: ${(props) => props.theme.text_primary};
   margin: 0 0 6px;
   @media (max-width: 600px) {
     font-size: 26px;
@@ -44,14 +45,14 @@ const Title = styled.h3`
 const Date = styled.div`
   font-size: 14px;
   font-weight: 500;
-  color: ${({ theme }) => theme.text_secondary};
+  color: ${(props) => props.theme.text_secondary};
   line-height: 1.2;
 `;
 
 const Desc = styled.p`
   font-size: 16px;
   font-weight: 400;
-  color: ${({ theme }) => theme.text_primary};
+  color: ${(props) => props.theme.text_primary};
   line-height: 1.7;
   margin: 0;
   @media (max-width: 600px) {
@@ -94,14 +95,14 @@ const Image = styled.img`
   object-fit: contain;   /* fit inside container without cropping */
   display: block;
   transition: opacity 0.4s ease;
-  background-color: ${({ theme }) => theme.card_light}; /* optional placeholder bg */
+  background-color: ${(props) => props.theme.card_light}; /* optional placeholder bg */
 `;
 
 
 const Label = styled.div`
   font-size: 16px;
   font-weight: 700;
-  color: ${({ theme }) => theme.text_primary};
+  color: ${(props) => props.theme.text_primary};
   margin-bottom: 8px;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -118,9 +119,9 @@ const Tags = styled.div`
 const Tag = styled.span`
   font-size: 13px;
   font-weight: 600;
-  color: ${({ theme }) => theme.primary};
-  background-color: ${({ theme }) => theme.primary + '22'};
-  border: 1.5px solid ${({ theme }) => theme.primary + '55'};
+  color: ${(props) => props.theme.primary};
+  background-color: ${(props) => props.theme.primary + '22'};
+  border: 1.5px solid ${(props) => props.theme.primary + '55'};
   padding: 7px 14px;
   border-radius: 9999px;
   cursor: default;
@@ -129,7 +130,7 @@ const Tag = styled.span`
 
   &:hover,
   &:focus-visible {
-    background-color: ${({ theme }) => theme.primary + '44'};
+    background-color: ${(props) => props.theme.primary + '44'};
   }
 `;
 
@@ -149,10 +150,10 @@ const Button = styled.a`
   font-size: 15px;
   font-weight: 700;
   text-decoration: none;
-  color: ${({ theme }) => theme.white};
-  background-color: ${({ theme }) => theme.primary};
+  color: ${(props) => props.theme.white};
+  background-color: ${(props) => props.theme.primary};
   box-shadow: 0 7px 20px rgba(0, 0, 0, 0.2);
-  border: 1px solid ${({ theme }) => theme.primary};
+  border: 1px solid ${(props) => props.theme.primary};
   transition: transform 0.15s ease, box-shadow 0.25s ease;
 
   &:hover {
@@ -167,12 +168,12 @@ const Button = styled.a`
 
 const GhostButton = styled(Button)`
   background-color: transparent;
-  color: ${({ theme }) => theme.text_primary};
-  border-color: ${({ theme }) => theme.text_secondary + 'aa'};
+  color: ${(props) => props.theme.text_primary};
+  border-color: ${(props) => props.theme.text_secondary + 'aa'};
   box-shadow: none;
 
   &:hover {
-    background-color: ${({ theme }) => theme.primary + '15'};
+    background-color: ${(props) => props.theme.primary + '15'};
     box-shadow: none;
   }
 `;
@@ -184,17 +185,17 @@ const CloseBtn = styled.button`
   cursor: pointer;
   background: transparent;
   border: none;
-  color: ${({ theme }) => theme.text_primary};
+  color: ${(props) => props.theme.text_primary};
   padding: 8px;
   border-radius: 12px;
   line-height: 0;
   transition: background-color 0.25s ease;
 
   &:hover {
-    background: ${({ theme }) => theme.card_light + '55'};
+    background: ${(props) => props.theme.card_light + '55'};
   }
   &:focus-visible {
-    outline: 3px solid ${({ theme }) => theme.primary};
+    outline: 3px solid ${(props) => props.theme.primary};
     outline-offset: 3px;
   }
 `;

@@ -10,7 +10,7 @@ import {
     HeroInnerContainer,
     HeroLeftContainer,
     HeroRightContainer,
-    Img,
+    HeroImage,
     ResumeButton,
     Span,
     SubTitle,
@@ -38,14 +38,7 @@ const HeroSection = () => {
                         >
                             <Title>
                                 Hi, I’m <br />
-                                <Span
-                                    style={{
-                                        background: 'linear-gradient(90deg, #6C63FF, #B367F1)',
-                                        WebkitBackgroundClip: 'text',
-                                        WebkitTextFillColor: 'transparent',
-                                        display: 'inline-block'
-                                    }}
-                                >
+                                <Span>
                                     {Bio.name}
                                 </Span>
                             </Title>
@@ -77,13 +70,6 @@ const HeroSection = () => {
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     aria-label="View Resume"
-                                    style={{
-                                        background:
-                                            "linear-gradient(135deg, #6C63FF 0%, #B367F1 100%)",
-                                        color: "#fff",
-                                        boxShadow: "0 6px 20px rgba(108,99,255,0.3)",
-                                        backdropFilter: "blur(6px)",
-                                    }}
                                 >
                                     🚀 Check Resume
                                 </ResumeButton>
@@ -118,7 +104,7 @@ const HeroSection = () => {
                                     }}
                                 />
                             )}
-                            <Img
+                            <HeroImage
                                 src={HeroImg}
                                 alt="hero portrait"
                                 loading="lazy"
