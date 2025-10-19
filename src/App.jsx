@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState, Suspense, lazy } from "react";
-import { ThemeProvider } from "@emotion/react";
+import { ThemeProvider } from "@mui/material/styles";
 import { Global, css } from "@emotion/react";
 import styled from "@emotion/styled";
 import { darkTheme, lightTheme } from "./utils/Themes.js";
