@@ -22,7 +22,7 @@ const HeroSection = () => {
     const [imgLoaded, setImgLoaded] = React.useState(false);
 
     return (
-        <div id="about">
+        <section id="about" aria-label="About section">
             <HeroContainer>
                 <HeroBg>
                     <HeroBgAnimation />
@@ -34,7 +34,7 @@ const HeroSection = () => {
                         <motion.div
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.7, ease: "easeOut" }}
+                            transition={{ duration: 0.7, ease: 'easeOut' }}
                         >
                             <Title>
                                 Hi, I’m <br />
@@ -52,7 +52,7 @@ const HeroSection = () => {
 
                             <TextLoop>
                                 I'm a
-                                <Span>
+                                <Span aria-hidden="true" style={{ display: 'inline-block' }}>
                                     <Typewriter
                                         options={{
                                             strings: Bio.roles,
@@ -68,22 +68,15 @@ const HeroSection = () => {
                             <SubTitle>{Bio.description}</SubTitle>
 
                             <motion.div
-                                whileHover={{ scale: 1.05 }}
+                                whileHover={{ scale: 1.03 }}
                                 whileTap={{ scale: 0.97 }}
-                                transition={{ type: "spring", stiffness: 250 }}
+                                transition={{ type: 'spring', stiffness: 250 }}
                             >
                                 <ResumeButton
                                     href={Bio.resume}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    aria-label="View Resume"
-                                    style={{
-                                        background:
-                                            "linear-gradient(135deg, #6C63FF 0%, #B367F1 100%)",
-                                        color: "#fff",
-                                        boxShadow: "0 6px 20px rgba(108,99,255,0.3)",
-                                        backdropFilter: "blur(6px)",
-                                    }}
+                                    aria-label="Open resume in new tab"
                                 >
                                     🚀 Check Resume
                                 </ResumeButton>
@@ -91,40 +84,46 @@ const HeroSection = () => {
                         </motion.div>
                     </HeroLeftContainer>
 
-                    {/* --- Right Side (Image) --- */}
                     <HeroRightContainer id="Right">
                         <motion.div
                             initial={{ opacity: 0, x: 40 }}
                             animate={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 1.1, ease: "easeOut" }}
+                            transition={{ duration: 1.1, ease: 'easeOut' }}
                             style={{
-                                position: "relative",
-                                display: "flex",
-                                justifyContent: "center",
-                                alignItems: "center",
+                                position: 'relative',
+                                display: 'flex',
+                                justifyContent: 'center',
+                                alignItems: 'center',
+                                borderRadius: 16,
+                                overflow: 'hidden'
                             }}
                         >
                             {!imgLoaded && (
                                 <div
+                                    aria-hidden="true"
                                     style={{
-                                        position: "absolute",
+                                        position: 'absolute',
                                         inset: 0,
-                                        borderRadius: "16px",
+                                        borderRadius: '50%',
                                         background:
-                                            "linear-gradient(100deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.15) 50%, rgba(255,255,255,0.05) 100%)",
-                                        backgroundSize: "200% 100%",
-                                        animation: "shimmer 1.5s infinite linear",
-                                        filter: "blur(6px)",
+                                            'linear-gradient(100deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.12) 50%, rgba(255,255,255,0.04) 100%)',
+                                        backgroundSize: '200% 100%',
+                                        animation: 'shimmer 1.5s infinite linear',
+                                        filter: 'blur(6px)',
+                                        zIndex: 0,
                                     }}
                                 />
                             )}
+
                             <Img
                                 src={HeroImg}
-                                alt="hero portrait"
+                                srcSet={`${HeroImg} 1x`}
+                                alt={`${Bio.name} — portrait`}
                                 loading="lazy"
                                 style={{
                                     opacity: imgLoaded ? 1 : 0,
-                                    transition: "opacity 0.5s ease",
+                                    transition: 'opacity 0.5s ease',
+                                    zIndex: 1,
                                 }}
                                 onLoad={() => setImgLoaded(true)}
                             />
@@ -133,7 +132,6 @@ const HeroSection = () => {
                 </HeroInnerContainer>
             </HeroContainer>
 
-            {/* ✨ Inline shimmer animation */}
             <style>
                 {`
           @keyframes shimmer {
@@ -142,7 +140,7 @@ const HeroSection = () => {
           }
         `}
             </style>
-        </div>
+        </section>
     );
 };
 
