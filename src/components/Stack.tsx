@@ -60,7 +60,7 @@ export default function TechStack() {
               <div className="flex max-w-80 flex-wrap gap-4">
                 {frontend.map((elm) => (
                   <span className="hint--top hint--rounded" key={elm.path} aria-label={elm.name}>
-                    <Image height={45} width={45} alt={elm.name} src={`/skillicons/${elm.path}`} />
+                    <img height={45} width={45} alt={elm.name} src={`/skillicons/${elm.path}`} />
                   </span>
                 ))}
               </div>
@@ -73,7 +73,7 @@ export default function TechStack() {
               <div className="flex max-w-80 flex-wrap gap-4">
                 {backend.map((elm) => (
                   <span className="hint--top hint--rounded" key={elm.path} aria-label={elm.name}>
-                    <Image height={45} width={45} alt={elm.name} src={`/skillicons/${elm.path}`} />
+                    <img height={45} width={45} alt={elm.name} src={`/skillicons/${elm.path}`} />
                   </span>
                 ))}
               </div>
@@ -86,7 +86,7 @@ export default function TechStack() {
               <div className="flex max-w-80 flex-wrap gap-4">
                 {misc.map((elm) => (
                   <span className="hint--top hint--rounded" key={elm.path} aria-label={elm.name}>
-                    <Image height={45} width={45} alt={elm.name} src={`/skillicons/${elm.path}`} />
+                    <img height={45} width={45} alt={elm.name} src={`/skillicons/${elm.path}`} />
                   </span>
                 ))}
               </div>
